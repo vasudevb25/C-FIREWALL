@@ -44,7 +44,17 @@ void signal_handler(int signo);
 void signal_handler(int signo) {
     if (signo == SIGINT) {
         printf("\nMonitoring stopped. Cleaning up...\n");
+        
+        printf("IP logging\n");
+        for(int i=0;i<ip_table_size;i++){
+        	printf("ips checked: %s\n",ip_table[i]);
+        }
+        printf("Blacklisted ips\n");
+        for(int i=0;i<blocked_ip_count;i++){
+        	printf("ips: %s\n",blocked_ips[i]);
+        }
         exit(0);
+        
     }
 }
 
